@@ -2,20 +2,69 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  text-decoration: none; }
 
 body {
   background: #fff; }
 
 .hero-section {
-  background: linear-gradient(0deg, #000 0%, #000 100%), url(././dist/img/hero-sec-bg.png), lightgray 50%/cover no-repeat;
+  background: url(../img/hero-sec-bg.png) no-repeat;
   height: 645px; }
 
 header {
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 15px 10px;
+  justify-content: space-between; }
   header .logo {
     display: flex;
     align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    gap: 8px; }
+  header nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; }
+    header nav a {
+      color: #fff;
+      font-size: 14px;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 600;
+      line-height: 1.428571428571429;
+      padding: 5px;
+      position: relative; }
+      header nav a:hover {
+        text-decoration: underline; }
+      header nav a.down-arrow::before {
+        content: '';
+        position: absolute;
+        right: -12px;
+        bottom: 7px;
+        background: url(../img/CaretDown-light.png);
+        width: 14px;
+        height: 14px; }
+      header nav a.down-arrow:hover::before {
+        transform: rotateZ(-90deg); }
+
+.btn {
+  color: #E5E5E5;
+  padding: 11px 20px;
+  border-radius: 50px;
+  border: 1.5px solid #E5E5E5; }
+  .btn:hover {
+    background-color: #191919;
+    color: white;
+    --webkit-transform: $property;
+    -ms-transform: rotate(10deg);
+    transform: rotate(10deg); }
+
+.btn.btn-dark {
+  border: none;
+  background-color: #27563A; }
+  .btn.btn-dark:hover {
+    background-color: #377952; }

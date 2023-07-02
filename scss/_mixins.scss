@@ -3,3 +3,9 @@
     align-items: center;
     justify-content: center;
 }
+
+@mixin transform($property){
+    --webkit-transform: $property;
+    -ms-transform: $property;
+    transform: $property;
+}

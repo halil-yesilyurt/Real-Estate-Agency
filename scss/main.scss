@@ -1,22 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-@import "variables";
-@import "mixins";
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import 'variables';
+@import 'mixins';
+@import 'functions';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
 }
-body{
-    background: #fff;
+body {
+  background: #fff;
 }
-.hero-section{
-    background: linear-gradient(0deg, #000 0%, #000 100%), url(././dist/img/hero-sec-bg.png), lightgray 50% / cover no-repeat;
-    height: 645px;
+.hero-section {
+  background: url(../img/hero-sec-bg.png) no-repeat;
+  height: 645px;
 }
-header{
+header {
+  @include display-flex;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 15px 10px;
+  justify-content: space-between;
+  .logo {
     @include display-flex;
-    .logo{
-        @include display-flex;
+    gap: 8px;
+  }
+  nav {
+    @include display-flex;
+    gap: 30px;
+    a {
+      color: #fff;
+      font-size: 14px;
+      font-family: $font-stack;
+      font-weight: 600;
+      line-height: 1.428571428571429;
+      padding: 5px;
+      position: relative;
+      &:hover {
+        text-decoration: underline;
+      }
+      &.down-arrow {
+        &::before {
+          content: '';
+          position: absolute;
+          right: -12px;
+          bottom: 7px;
+          background: url(../img/CaretDown-light.png);
+          width: 14px;
+          height: 14px;
+        }
+        &:hover::before {
+          transform: rotateZ(-90deg);
+        }
+      }
     }
+  }
+}
+%btn-shared{
+  color: $ternary-color;
+  padding: 11px 20px;
+  border-radius: 50px;
+  border: 1.5px solid $ternary-color;
+  &:hover{
+    background-color: darken($ternary-color, 80%);
+    color: lighten($ternary-color,70%);
+    @include transform(rotate(10deg));
+  }
+}
+.btn{
+  @extend %btn-shared;
+  &.btn-dark{
+    border: none;
+    background-color: $primary-color;
+    &:hover{
+      background-color: lighten($primary-color, 10%);
+    }
+  }
 }
