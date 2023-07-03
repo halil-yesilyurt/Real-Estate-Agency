@@ -10,7 +10,21 @@ body {
 
 .hero-section {
   background: url(../img/hero-sec-bg.png) no-repeat;
-  height: 645px; }
+  aspect-ratio: 3200/951;
+  height: auto;
+  background-size: contain;
+  width: 100%;
+  position: relative;
+  z-index: 0; }
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: -1; }
 
 header {
   display: flex;
@@ -51,20 +65,80 @@ header {
       header nav a.down-arrow:hover::before {
         transform: rotateZ(-90deg); }
 
-.btn {
+.btn-group .btn {
   color: #E5E5E5;
   padding: 11px 20px;
   border-radius: 50px;
   border: 1.5px solid #E5E5E5; }
-  .btn:hover {
+  .btn-group .btn:hover {
     background-color: #191919;
     color: white;
     --webkit-transform: $property;
     -ms-transform: rotate(10deg);
     transform: rotate(10deg); }
 
-.btn.btn-dark {
-  border: none;
-  background-color: #27563A; }
-  .btn.btn-dark:hover {
-    background-color: #377952; }
+.btn-group {
+  display: flex;
+  gap: 10px; }
+  .btn-group .btn.btn-dark {
+    border: none;
+    background-color: #27563A; }
+    .btn-group .btn.btn-dark:hover {
+      background-color: #377952; }
+
+.slider-wrapper {
+  max-width: 1440px;
+  margin: 4rem auto 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .slider-wrapper .motto {
+    color: #fff;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px; }
+    .slider-wrapper .motto h2 {
+      font-size: 64px;
+      font-weight: 700; }
+    .slider-wrapper .motto p {
+      font-size: 16px;
+      font-weight: 500px; }
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 875px;
+  width: 100%; }
+  .search input {
+    width: 100%;
+    display: flex;
+    padding: 15px;
+    height: 62px;
+    background-color: white;
+    color: #777;
+    font-size: 14px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    border: 0; }
+    .search input:focus::placeholder {
+      color: transparent; }
+    .search input:focus, .search input:valid {
+      outline: none; }
+  .search .search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: medium none;
+    list-style: none outside none;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0;
+    cursor: pointer;
+    background: #27563A;
+    width: 72px;
+    padding: 19px 24px;
+    flex-shrink: 0;
+    bottom: 0; }

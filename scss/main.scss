@@ -14,7 +14,17 @@ body {
 }
 .hero-section {
   background: url(../img/hero-sec-bg.png) no-repeat;
-  height: 645px;
+  aspect-ratio: 3200/951;
+  height: auto;
+  background-size: contain;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+  &::before {
+    @include before-after;
+    background: rgba($color: #000000, $alpha: 0.1);
+    z-index: -1;
+  }
 }
 header {
   @include display-flex;
@@ -57,24 +67,82 @@ header {
     }
   }
 }
-%btn-shared{
+%btn-shared {
   color: $ternary-color;
   padding: 11px 20px;
   border-radius: 50px;
   border: 1.5px solid $ternary-color;
-  &:hover{
+  &:hover {
     background-color: darken($ternary-color, 80%);
-    color: lighten($ternary-color,70%);
+    color: lighten($ternary-color, 70%);
     @include transform(rotate(10deg));
   }
 }
-.btn{
-  @extend %btn-shared;
-  &.btn-dark{
-    border: none;
-    background-color: $primary-color;
-    &:hover{
-      background-color: lighten($primary-color, 10%);
+.btn-group {
+  display: flex;
+  gap: 10px;
+  .btn {
+    @extend %btn-shared;
+    &.btn-dark {
+      border: none;
+      background-color: $primary-color;
+      &:hover {
+        background-color: lighten($primary-color, 10%);
+      }
     }
+  }
+}
+.slider-wrapper {
+  max-width: 1440px;
+  margin: 4rem auto 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .motto {
+    color: #fff;
+    font-family: $font-stack;
+    @include display-flex;
+    flex-direction: column;
+    gap: 15px;
+    h2 {
+      font-size: 64px;
+      font-weight: 700;
+    }
+    p {
+      font-size: 16px;
+      font-weight: 500px;
+    }
+  }
+}
+.search {
+  @include display-flex;
+  max-width: 875px;
+  width: 100%;
+  input {
+    width: 100%;
+    display: flex;
+    padding: 15px;
+    height: 62px;
+    background-color: white;
+    color: #777;
+    font-size: 14px;
+    font-family: $font-stack;
+    border: 0;
+    &:focus::placeholder {
+      color: transparent;
+    }
+    &:focus,
+    &:valid {
+      outline: none;
+    }
+  }
+  .search-btn{
+    @include display-flex;
+    @include btn-reset;
+    background: $primary-color;
+    width: 72px;
+    padding: 19px 24px;
+    flex-shrink: 0;
+    bottom: 0;
   }
 }
